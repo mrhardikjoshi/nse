@@ -1,5 +1,5 @@
 require "nse/version"
 
-module Nse
+module NSE
   # Your code goes here...
 end

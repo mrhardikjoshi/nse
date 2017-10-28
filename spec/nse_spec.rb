@@ -1,6 +1,6 @@
-RSpec.describe Nse do
+RSpec.describe NSE do
   it "has a version number" do
-    expect(Nse::VERSION).not_to be nil
+    expect(NSE::VERSION).not_to be nil
   end
 
   it "does something useful" do

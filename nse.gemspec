@@ -5,13 +5,13 @@ require "nse/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "nse"
-  spec.version       = Nse::VERSION
+  spec.version       = NSE::VERSION
   spec.authors       = ["h4hardikonly"]
   spec.email         = ["h4hardikonly@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Gem to interact with National Stock Exchange (NSE) web service and retrive various information}
+  spec.description   = %q{This gem provides a way to get equity information, top loosers gainers, realtime pricing and bids from NSE}
+  spec.homepage      = "https://github.com/h4hardikonly/nse"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
