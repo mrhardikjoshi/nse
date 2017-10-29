@@ -1,5 +1,6 @@
-require "nse/version"
+require 'nse/version'
+require 'nse/equity'
+require 'nse/end_points'
 
 module NSE
-  # Your code goes here...
 end
