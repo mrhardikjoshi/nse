@@ -1,4 +1,4 @@
-require 'open-uri'
+require_relative 'formats/quote'
 
 class NSE::Equity
   SYMBOL_MAPPING = 'SYMBOL'
@@ -22,15 +22,15 @@ class NSE::Equity
     @face_value = attr_map[:face_value]&.to_i
   end
 
+  def get_quote
+    parsed_response = JSON.parse(NSE::Requester.get_parsed(NSE::EndPoints.get_quote(symbol)))
+    Formats::Quote.new(parsed_response)
+  end
+
   def self.get_list
-    list_str = ''
-    col_sep  = ','
-    row_sep  = "\n"
+    equity_list_array = NSE::Requester.get_parsed(NSE::EndPoints::EQUITY_LIST_CSV)
+    headers = equity_list_array.shift
 
-    open(NSE::EndPoints::EQUITY_LIST_CSV, 'rb') { |rf| list_str = rf.read }
-    equity_list_array = list_str.split(row_sep)
-
-    headers = equity_list_array.shift.split(col_sep)
     index_of_symbol = headers.index(SYMBOL_MAPPING)
     index_of_name_of_company = headers.index(NAME_OF_COMPANY_MAPPING)
     index_of_series = headers.index(SERIES_MAPPING)
@@ -40,8 +40,7 @@ class NSE::Equity
     index_of_isin_number = headers.index(ISIN_NUMBER_MAPPING)
     index_of_face_value = headers.index(FACE_VALUE_MAPPING)
 
-    equity_list_array.map do |row_str|
-      row = row_str.split(col_sep)
+    equity_list_array.map do |row|
       new(symbol: row[index_of_symbol], name_of_company: row[index_of_name_of_company], series: row[index_of_series], date_of_listing: row[index_of_date_of_listing], paid_up_value: row[index_of_paid_up_value], market_lot: row[index_of_market_lot], isin_number: row[index_of_isin_number], face_value: row[index_of_face_value])
     end
   end
