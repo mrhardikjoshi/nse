@@ -2,6 +2,8 @@
 
 This gem provides a way to get equity information, top loosers gainers, realtime pricing and bids from NSE. THIS GEM IS UNDER DEVELOPMENT AT THE MOMENT AND IS UNSTABLE.
 
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
