@@ -2,6 +2,8 @@
 
 This gem provides a way to get equity information, top loosers gainers, realtime pricing and bids from NSE. THIS GEM IS UNDER DEVELOPMENT AT THE MOMENT AND IS UNSTABLE.
 
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -39,3 +41,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the NSE project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/h4hardikonly/nse/blob/master/CODE_OF_CONDUCT.md).
+
+
